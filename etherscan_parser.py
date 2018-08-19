@@ -10,11 +10,16 @@ api_url = 'https://api.etherscan.io/api?module=contract&action=getsourcecode&add
 res = requests.get(api_url)
 data = res.text
 
-contract_code = json.loads(data)['result']
+contract_json = json.loads(data)['result']
 
-contract_name = contract_code[0]['ContractName']
+contract_name = contract_json[0]['ContractName']
+contract_code = contract_json[0]['SourceCode']
 
-print "[+] Contract Name is \"" + contract_code[0]['ContractName'] + "\""
+if contract_code == "":
+    print "[-] Sorry, this is not contract nor has contract code"
+    exit()
+
+print "[+] Contract Name is \"" + contract_json[0]['ContractName'] + "\""
 
 """
 # you can choose wanted information about contract
@@ -25,11 +30,11 @@ menu = raw_input("[*] Enter 1) Save Source Code \n[*] else) Save ABI \n> ")
 
 if (menu == '1'):
     f = open(contract_name + ".sol","w")
-    f.write(contract_code[0]['SourceCode'])
+    f.write(contract_code)
     f.close()
 
 else:
     f = open(contract_name + "_abi","w")
-    f.write(contract_code[0]['ABI'])
+    f.write(contract_json[0]['ABI'])
     f.close()
 
