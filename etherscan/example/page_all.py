@@ -1,7 +1,7 @@
 import sys
 sys.path.append('../')
 
-from etherscan_parser import token
+from parser_library import token
 
 t = token()
 
