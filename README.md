@@ -13,10 +13,10 @@ pip install json
 ```
 ## Components
 * Simple Contract Parser
-[etherscan_parser.py](./etherscan_parser.py)
+** [etherscan_parser](./etherscan_parser.py)
 
-* Token Parser
-[token_parser](./etherscan/parser_library.py)
+* Token Parser Library
+** [token_parser library](./etherscan/parser_library.py)
 
 
 ### How to use Simple Contract Parser
