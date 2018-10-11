@@ -1,4 +1,4 @@
-# Contract Code & ABI parser
+# Contract Code & ABI crawler
 
 ## Environment
 Ubuntu, Linux
